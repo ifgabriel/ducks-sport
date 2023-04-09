@@ -1,0 +1,57 @@
+{
+  "_beagleComponent_": "beagle:container",
+  "children": [
+    {
+      "_beagleComponent_": "beagle:text",
+      "text": "Welcome to the Home page"
+    },
+    {
+      "_beagleComponent_": "beagle:button",
+      "text": "TO LANDING-PAGE",
+      "onPress": [
+        {
+          "_beagleAction_": "beagle:pushView",
+          "route": {
+            "url": "/landing-page.json"
+          }
+        }
+      ]
+    },
+    {
+      "_beagleComponent_": "beagle:gridview",
+      "spanCount": 4,
+      "context": {
+        "id": "products",
+        "value": []
+      },
+      "iteratorName": "product",
+      "onInit": [
+        {
+          "_beagleAction_": "beagle:sendRequest",
+          "url": "https://api.npoint.io/4b496dc1a837d0ad85cf",
+          "onSuccess": [
+            {
+              "_beagleAction_": "beagle:setContext",
+              "contextId": "products",
+              "value": "@{onSuccess.data.contents}"
+            }
+          ]
+        }
+      ],
+      "dataSource": "@{products}",
+      "templates": [
+        {
+          "view": {
+            "_beagleComponent_": "custom:card",
+            "imageUrl": "@{product.imageUrl}",
+            "name": "@{product.name}",
+            "brand": "@{product.brand}",
+            "price": "@{product.price}",
+            "installmentPrice": "@{product.installmentPrice}",
+            "status": "@{product.status}"
+          }
+        }
+      ]
+    }
+  ]
+}
