@@ -7,6 +7,7 @@ interface ComponentProps {
   name: string
   brand: string
   price: string
+  onPress?: any
   installmentPrice?: {
     installments: number
     price: string
@@ -14,13 +15,13 @@ interface ComponentProps {
   status?: 'NEW' | 'RECOMMED'
 }
 
-const Card = ({ imageUrl, status, name, price, installmentPrice }: ComponentProps) => (
-  <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-    <Image src={imageUrl} alt='' />
-    <Box p='6' gap='16px' display='flex' flexDirection='column'>
+const Card = ({ onPress, imageUrl, status, name, price, installmentPrice }: ComponentProps) => (
+  <Box maxW='sm' onClick={onPress} borderRadius='lg'>
+    <Image src={imageUrl} alt='' borderRadius='3xl' />
+    <Box px='2' py='6' gap='16px' display='flex' flexDirection='column'>
       <Box display='flex' alignItems='baseline'>
         {status && (
-          <Badge borderRadius='full' px='2' colorScheme={status === 'NEW' ? 'teal' : 'orange'}>
+          <Badge borderRadius='full' px='2' colorScheme={status === 'NEW' ? 'cyan' : 'purple'}>
             {status === 'NEW' ? 'Lançamento' : 'Recomendado'}
           </Badge>
         )}
@@ -31,7 +32,7 @@ const Card = ({ imageUrl, status, name, price, installmentPrice }: ComponentProp
       <Box>
         <Text>R${price}</Text>
         {!!installmentPrice && (
-          <Text color='teal.500' fontSize='sm'>
+          <Text color='orange.500' fontSize='sm'>
             {installmentPrice.installments} x R$ {installmentPrice.price}{' '}
           </Text>
         )}

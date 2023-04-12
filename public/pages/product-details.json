@@ -17,23 +17,11 @@
   "children": [
     {
       "_beagleComponent_": "beagle:text",
-      "text": "Welcome to the Lading page",
+      "text": "Welcome to the product details",
       "style": {
         "margin": {
           "top": {
             "value": 40,
-            "type": "REAL"
-          }
-        }
-      }
-    },
-    {
-      "_beagleComponent_": "beagle:text",
-      "text": "Use the panel on the left to start coding!",
-      "style": {
-        "margin": {
-          "top": {
-            "value": 5,
             "type": "REAL"
           }
         }

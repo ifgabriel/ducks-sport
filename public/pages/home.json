@@ -1,55 +1,66 @@
 {
   "_beagleComponent_": "beagle:container",
+  "style": {
+    "flex": {
+      "alignItems": "CENTER",
+      "flexDirection": "COLUMN",
+      "justifyContent": "CENTER"
+    },
+    "background": "#EDEDED"
+  },
   "children": [
     {
-      "_beagleComponent_": "beagle:text",
-      "text": "Welcome to the Home page"
-    },
-    {
-      "_beagleComponent_": "beagle:button",
-      "text": "TO LANDING-PAGE",
-      "onPress": [
-        {
-          "_beagleAction_": "beagle:pushView",
-          "route": {
-            "url": "/landing-page.json"
+      "_beagleComponent_": "beagle:container",
+      "context": {
+        "id": "searchValue",
+        "value": ""
+      },
+      "style": {
+        "flex": {
+          "alignItems": "CENTER",
+          "flexDirection": "COLUMN",
+          "justifyContent": "CENTER"
+        },
+        "size": {
+          "width": {
+            "value": 1118,
+            "type": "REAL"
+          }
+        },
+        "margin": {
+          "top": {
+            "value": 40,
+            "type": "REAL"
           }
         }
-      ]
-    },
-    {
-      "_beagleComponent_": "beagle:gridview",
-      "spanCount": 4,
-      "context": {
-        "id": "products",
-        "value": []
       },
-      "iteratorName": "product",
-      "onInit": [
+      "children": [
         {
-          "_beagleAction_": "beagle:sendRequest",
-          "url": "https://api.npoint.io/4b496dc1a837d0ad85cf",
-          "onSuccess": [
+          "_beagleComponent_": "custom:input",
+          "value": "@{searchValue}",
+          "label": "Pesquise por algo",
+          "placeholder": "Nike, Adidas, Mochila...",
+          "onChange": [
             {
               "_beagleAction_": "beagle:setContext",
-              "contextId": "products",
-              "value": "@{onSuccess.data.contents}"
+              "contextId": "searchValue",
+              "value": "@{onChange.value}"
             }
           ]
-        }
-      ],
-      "dataSource": "@{products}",
-      "templates": [
+        },
         {
-          "view": {
-            "_beagleComponent_": "custom:card",
-            "imageUrl": "@{product.imageUrl}",
-            "name": "@{product.name}",
-            "brand": "@{product.brand}",
-            "price": "@{product.price}",
-            "installmentPrice": "@{product.installmentPrice}",
-            "status": "@{product.status}"
-          }
+          "_beagleComponent_": "beagle:text",
+          "text": "@{searchValue}"
+        },
+        {
+          "_beagleComponent_": "custom:grid",
+          "title": "Recomendado",
+          "filter": "@{searchValue}"
+        },
+        {
+          "_beagleComponent_": "custom:grid",
+          "title": "Novos",
+          "filter": "@{searchValue}"
         }
       ]
     }

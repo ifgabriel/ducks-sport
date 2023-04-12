@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Air Force 1 Low Retro",
+    "brand": "Nike",
+    "price": "1099,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02620551.jpg",
+    "installmentPrice": {
+      "price": "190,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Nike Sportswear Club Fleece",
+    "brand": "Adidas",
+    "price": "799,99",
+    "status": "RECOMMENDED",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/025025P1.jpg",
+    "installmentPrice": {
+      "price": "90,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG",
+    "brand": "Nike",
+    "price": "1599,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02544315.jpg",
+    "installmentPrice": {
+      "price": "250,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Air Force 1 Low Retro",
+    "brand": "Nike",
+    "price": "1099,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02620551.jpg",
+    "installmentPrice": {
+      "price": "190,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Nike Sportswear Club Fleece",
+    "brand": "Adidas",
+    "price": "799,99",
+    "status": "RECOMMENDED",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/025025P1.jpg",
+    "installmentPrice": {
+      "price": "90,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG",
+    "brand": "Nike",
+    "price": "1599,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02544315.jpg",
+    "installmentPrice": {
+      "price": "250,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Air Force 1 Low Retro",
+    "brand": "Nike",
+    "price": "1099,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02620551.jpg",
+    "installmentPrice": {
+      "price": "190,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Nike Sportswear Club Fleece",
+    "brand": "Adidas",
+    "price": "799,99",
+    "status": "RECOMMENDED",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/025025P1.jpg",
+    "installmentPrice": {
+      "price": "90,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG",
+    "brand": "Nike",
+    "price": "1599,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02544315.jpg",
+    "installmentPrice": {
+      "price": "250,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Air Force 1 Low Retro",
+    "brand": "Nike",
+    "price": "1099,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02620551.jpg",
+    "installmentPrice": {
+      "price": "190,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Nike Sportswear Club Fleece",
+    "brand": "Adidas",
+    "price": "799,99",
+    "status": "RECOMMENDED",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/025025P1.jpg",
+    "installmentPrice": {
+      "price": "90,00",
+      "installments": 10
+    }
+  },
+  {
+    "name": "Air Jordan 1 Retro High OG",
+    "brand": "Nike",
+    "price": "1599,99",
+    "status": "NEW",
+    "imageUrl": "https://imgnike-a.akamaihd.net/768x768/02544315.jpg",
+    "installmentPrice": {
+      "price": "250,00",
+      "installments": 10
+    }
+  }
+]
