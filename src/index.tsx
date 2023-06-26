@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import './index.css'
 import App from './App'
+import './index.css'
+import makeServer from './mocks'
+
+makeServer()
 
 ReactDOM.render(
   <React.StrictMode>

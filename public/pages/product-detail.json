@@ -1,0 +1,35 @@
+{
+  "_beagleComponent_": "beagle:container",
+  "children": [
+    {
+      "_beagleComponent_": "beagle:container",
+      "context": {
+        "id": "product",
+        "value": []
+      },
+      "iteratorName": "product",
+      "onInit": [
+        {
+          "_beagleAction_": "beagle:sendRequest",
+          "url": "http://localhost:3000/product/@{global.product}",
+          "onSuccess": [
+            {
+              "_beagleAction_": "beagle:setContext",
+              "contextId": "product",
+              "value": "@{onSuccess.data}"
+            }
+          ]
+        }
+      ],
+      "children": {
+        "_beagleComponent_": "custom:card",
+        "imageUrl": "@{product.imageUrl}",
+        "name": "@{product.name}",
+        "brand": "@{product.brand}",
+        "price": "@{product.price}",
+        "installmentPrice": "@{product.installmentPrice}",
+        "status": "@{product.status}"
+      }
+    }
+  ]
+}

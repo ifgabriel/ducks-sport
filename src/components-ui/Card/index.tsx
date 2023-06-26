@@ -1,4 +1,4 @@
-import { Box, Badge, Image } from '@chakra-ui/react'
+import { Badge, Box, Image } from '@chakra-ui/react'
 
 import Text from '../Text'
 
@@ -7,6 +7,7 @@ interface ComponentProps {
   name: string
   brand: string
   price: string
+  onPress: any
   installmentPrice?: {
     installments: number
     price: string
@@ -14,8 +15,8 @@ interface ComponentProps {
   status?: 'NEW' | 'RECOMMED'
 }
 
-const Card = ({ imageUrl, status, name, price, installmentPrice }: ComponentProps) => (
-  <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+const Card = ({ imageUrl, status, name, price, installmentPrice, onPress }: ComponentProps) => (
+  <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' onClick={() => onPress?.()}>
     <Image src={imageUrl} alt='' />
     <Box p='6' gap='16px' display='flex' flexDirection='column'>
       <Box display='flex' alignItems='baseline'>

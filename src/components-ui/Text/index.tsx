@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
 import { Text as PrimitiveText, TextProps } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 
 interface ComponentProps extends TextProps {
   text?: ReactNode
