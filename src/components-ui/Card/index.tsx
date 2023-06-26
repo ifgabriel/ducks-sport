@@ -21,7 +21,7 @@ const Card = ({ imageUrl, status, name, price, installmentPrice, onPress }: Comp
     <Box p='6' gap='16px' display='flex' flexDirection='column'>
       <Box display='flex' alignItems='baseline'>
         {status && (
-          <Badge borderRadius='full' px='2' colorScheme={status === 'NEW' ? 'teal' : 'orange'}>
+          <Badge borderRadius='full' px='2' colorScheme={status === 'NEW' ? 'cyan' : 'purple'}>
             {status === 'NEW' ? 'Lançamento' : 'Recomendado'}
           </Badge>
         )}
@@ -32,7 +32,7 @@ const Card = ({ imageUrl, status, name, price, installmentPrice, onPress }: Comp
       <Box>
         <Text>R${price}</Text>
         {!!installmentPrice && (
-          <Text color='teal.500' fontSize='sm'>
+          <Text color='orange.500' fontSize='sm'>
             {installmentPrice.installments} x R$ {installmentPrice.price}{' '}
           </Text>
         )}
