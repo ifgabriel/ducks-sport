@@ -14,22 +14,21 @@ interface ComponentProps {
 
 const useFetchGrid = ({ url, params = {} }: any) => useQuery(
   ['fetch-grid', params], () => {
-    const path = buildUrl({ route: url, queryParams: { params } })
+    const path = buildUrl({ route: url, queryParams: { name: params } })
 
     return Api.get<string, any[]>(path).then(({ data }) => data)
   },
 )
 
 const Grid = ({ url, params, dataSource, children, ...props }: ComponentProps) => {
-  console.log('params', params)
   const { data, isFetched } = useFetchGrid({ url, params })
 
   const handleState = () => {
-    if (isFetched && data?.length > 0) {
+    if (isFetched && data && data?.length > 0) {
       return "view"
     }
 
-    if (isFetched && data?.length === 0) {
+    if (isFetched && data && data?.length === 0) {
       return "empty"
     }
 
@@ -44,7 +43,8 @@ const Grid = ({ url, params, dataSource, children, ...props }: ComponentProps) =
     <ContainerPrimitive className={styles.Container} {...props} maxW='8xl'>
       {{
         ...renders,
-        view: data && data?.map((source: any) => cloneElement(renders.view, source)),
+        loading: Array.from({ length: renders.loading.props.length }).map((_, index) => cloneElement(renders.loading, { key: `loading-products-${index}` })),
+        view: data && data?.map((source: any) => cloneElement(renders.view, {...source, key: source.id})),
       }[handleState()]}
     </ContainerPrimitive>
   )

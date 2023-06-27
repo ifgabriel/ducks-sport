@@ -14,7 +14,7 @@ export function AxiosHttpClient(): HttpClient {
         method: data.method,
         headers: data.headers,
       })
-    } catch (error) {
+    } catch (error: any) {
       axiosResponse = error.response
     }
 

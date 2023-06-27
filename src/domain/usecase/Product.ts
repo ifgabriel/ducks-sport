@@ -1,7 +1,8 @@
-export interface ModelProduct {
+export interface Product {
   id: string
   name: string
   price: string
+  brand: string
   status: 'NEW' | 'RECOMMENDED'
   imagesUrl: string[],
   installmentPrice: {

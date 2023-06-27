@@ -1,5 +1,5 @@
 {
-  "_beagleComponent_": "beagle:container",
+  "_beagleComponent_": "custom:container",
   "children": [
     {
       "_beagleComponent_": "beagle:container",
@@ -22,9 +22,10 @@
         }
       ],
       "children": {
-        "_beagleComponent_": "custom:card",
-        "imageUrl": "@{product.imageUrl}",
-        "name": "@{product.name}",
+        "_beagleComponent_": "custom:productDetail",
+        "imagesUrl": "@{product.imagesUrl}",
+        "name": "@{product.name}",        
+        "sizes": [39, 38, 40, 41, 42],
         "brand": "@{product.brand}",
         "price": "@{product.price}",
         "installmentPrice": "@{product.installmentPrice}",

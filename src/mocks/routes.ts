@@ -20,7 +20,7 @@ const routes = (server: MocksType) => {
   server.get('/product/:id', function (schema, request) {
     const product = schema.find('product', request.params.id)
 
-    return new Response(200, {}, product as any)
+    return new Response(200, {}, product)
   })
 }
 

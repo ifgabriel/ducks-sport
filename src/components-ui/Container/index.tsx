@@ -15,7 +15,7 @@ const Container = ({ onInit, ...props }: ComponentProps) => {
   }, [])
 
   return (
-    <ContainerPrimitive {...props} maxW='8xl'/>
+    <ContainerPrimitive {...props} maxW='8xl' mt={8} />
   )
 }
 

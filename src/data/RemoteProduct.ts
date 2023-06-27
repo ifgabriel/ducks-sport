@@ -2,10 +2,13 @@ export interface RemoteProduct {
   id: string
   name: string
   price: string
+  brand: string,
   status: 'NEW' | 'RECOMMENDED'
-  imageUrl: string
+  imagesUrl: string[],
   installmentPrice: {
     price: number
     installments: number
-  }
+  },
+  sizes: number[],
+  description: string,
 }
