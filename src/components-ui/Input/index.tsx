@@ -6,17 +6,18 @@ type onChange = (value: Record<string, string>) => void
 interface ComponentProps {
   value: string
   label: string
-  onChange: onChange
+  onChange: onChange,
+  placeholder: string,
 }
 
 const handleEvent = (handler?: onChange) => (event: ChangeEvent<HTMLInputElement>) => {
   handler?.({ value: event.target.value })
 }
 
-const Input = ({ value, label, onChange }: ComponentProps) => (
+const Input = ({ value, label, onChange, placeholder }: ComponentProps) => (
   <Box mx="auto" width={500}  my={12}>
-    <FormLabel>{label}</FormLabel>
-    <InputPrimitive value={value} onChange={handleEvent(onChange)} />
+    <FormLabel fontWeight='normal'>{label}</FormLabel>
+    <InputPrimitive value={value} onChange={handleEvent(onChange)} placeholder={placeholder} />
   </Box>
 )
 

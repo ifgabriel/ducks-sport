@@ -1,92 +1,73 @@
 {
   "_beagleComponent_": "custom:container",
   "context": {
-    "id": "products",
-    "value": []
-  },
-  "onInit": {
-    "_beagleAction_": "beagle:sendRequest",
-    "url": "http://localhost:3000/products",
-    "onSuccess": [
-      {
-        "_beagleAction_": "beagle:setContext",
-        "contextId": "products",
-        "value": "@{onSuccess.data}"
-      }
-    ]
+    "id": "productsFilter",
+    "value": ""
   },
   "children": [
     {
-      "_beagleComponent_": "beagle:container",
-      "context": {
-        "id": "productsFilter",
-        "value": ""
-      },
-      "children": {
-        "_beagleComponent_": "custom:input",
-        "label": "Pesquise algo",
-        "value": "@{productsFilter}",
-        "onChange": [
-          {
-            "_beagleAction_": "beagle:setContext",
-            "contextId": "productsFilter",
-            "value": "@{onChange.value}"
-          },
-          {
-            "_beagleAction_": "beagle:sendRequest",
-            "url": "http://localhost:3000/products?name=@{onChange.value}",
-            "onSuccess": [
-              {
-                "_beagleAction_": "beagle:setContext",
-                "contextId": "products",
-                "value": "@{onSuccess.data}"
-              }
-            ]
-          }
-        ]
-      }
+      "_beagleComponent_": "custom:input",
+      "placeholder": "Nike, Adidas, Vans...",
+      "label": "Pesquise algo",
+      "value": "@{productsFilter}",
+      "onChange": [
+        {
+          "_beagleAction_": "beagle:setContext",
+          "contextId": "productsFilter",
+          "value": "@{onChange.value}"
+        }
+      ]
     },
     {
       "_beagleComponent_": "custom:grid",
       "url": "/products",
-      "params": "@{productsFilter}",
-      "dataSource": "@{products}",
+      "queryParams": "@{productsFilter}",
       "children": [
         {
-        "case": "view",
-        "_beagleComponent_": "custom:card",
-        "onPress": [
-          {
-            "_beagleAction_": "beagle:setContext",
-            "contextId": "global",
-            "path": "product",
-            "value": "@{product.id}"
-          },
-          {
-            "_beagleAction_": "beagle:pushView",
-            "route": {
-              "url": "/product-detail.json",
-              "shouldPrefetch": false
+          "case": "view",
+          "_beagleComponent_": "custom:card",
+          "onPress": [
+            {
+              "_beagleAction_": "beagle:setContext",
+              "contextId": "global",
+              "path": "product",
+              "value": "@{product.id}"
+            },
+            {
+              "_beagleAction_": "beagle:pushView",
+              "route": {
+                "url": "/product-detail.json",
+                "shouldPrefetch": false
+              }
             }
-          }
-        ],
-        "imageUrl": "@{product.imageUrl}",
-        "name": "@{product.name}",
-        "brand": "@{product.brand}",
-        "price": "@{product.price}",
-        "installmentPrice": "@{product.installmentPrice}",
-        "status": "@{product.status}"
-      },
-      {
-        "case": "loading",
-        "_beagleComponent_": "beagle:text",
-        "text": "loading"
-      },
-      {
-        "case": "empty",
-        "_beagleComponent_": "beagle:text",
-        "text": "empty"
-      }]
+          ],
+          "imageUrl": "@{product.imageUrl}",
+          "name": "@{product.name}",
+          "brand": "@{product.brand}",
+          "price": "@{product.price}",
+          "installmentPrice": "@{product.installmentPrice}",
+          "status": "@{product.status}"
+        },
+        {
+          "case": "loading",
+          "length": 10,
+          "_beagleComponent_": "custom:skeleton",
+          "width": "296px",
+          "height": "400px"
+        },
+        {
+          "case": "empty",
+          "_beagleComponent_": "custom:exceptionState",
+          "title": "Opps! Nenhum resultado encontrado",
+          "description": "Pode ter acabado o estoque desse produto"
+        },
+        {
+          "case": "error",
+          "_beagleComponent_": "custom:exceptionState",
+          "title": "Opps! Infelizmente tivemos um problema",
+          "description": "Tente novamente mais tarde"
+        }
+      ]
     }
   ]
 }

@@ -11,10 +11,10 @@ const routes = (server: MocksType) => {
         product.name.toLowerCase().includes(request.queryParams.name)
       )
 
-      return new Response(200, {}, products)
+      return new Response(500, undefined)
     }
 
-    return new Response(200, {}, products)
+    return new Response(403, undefined)
   }, { timing: 1500 })
 
   server.get('/product/:id', function (schema, request) {

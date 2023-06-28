@@ -8,7 +8,7 @@ import BeagleService from './beagle/beagle-service'
 
 const config = {
   initialColorMode: 'light',
-  useSystemColorMode: false,
+  useSystemColorMode: true,
 }
 
 const theme = extendTheme({ config })
@@ -17,13 +17,12 @@ const queryClient = new QueryClient()
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BeagleProvider value={BeagleService}>
-        <ChakraProvider theme={theme}>
+      <ChakraProvider theme={theme}>
+        <BeagleProvider value={BeagleService}>
           <BeagleRemoteView route='/home.json' />
-        </ChakraProvider>
-      </BeagleProvider>
+        </BeagleProvider>
+      </ChakraProvider>
     </QueryClientProvider>
-
   )
 }
 

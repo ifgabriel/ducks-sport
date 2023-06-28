@@ -16,12 +16,12 @@ interface ComponentProps {
 }
 
 const Card = ({ imageUrl, status, name, price, installmentPrice, onPress }: ComponentProps) => (
-  <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' onClick={() => onPress?.()}>
-    <Image src={imageUrl} alt='' />
-    <Box p='6' gap='16px' display='flex' flexDirection='column'>
+  <Box overflow='hidden' onClick={() => onPress?.()}>
+    <Image src={imageUrl} alt='' borderRadius='3xl'/>
+    <Box py='6' px='2' gap='16px' display='flex' flexDirection='column'>
       <Box display='flex' alignItems='baseline'>
         {status && (
-          <Badge borderRadius='full' px='2' colorScheme={status === 'NEW' ? 'cyan' : 'purple'}>
+          <Badge borderRadius='sm' px='2' colorScheme={status === 'NEW' ? 'cyan' : 'purple'}>
             {status === 'NEW' ? 'Lançamento' : 'Recomendado'}
           </Badge>
         )}
