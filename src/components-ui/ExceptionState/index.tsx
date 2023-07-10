@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react"
+import { FileWarningIcon, XIcon } from 'lucide-react';
 
 interface ComponentProps {
   title: string,
@@ -7,11 +7,18 @@ interface ComponentProps {
 }
 
 const ExceptionState = ({ title, description, type }: ComponentProps) => (
-  <Box bg='gray.200' borderRadius='lg' py='4' px='10'>
-    <Text fontSize='xl'>{title}</Text>
-    <Text fontSize='xl'>{type}</Text>
-    <Text fontSize='lg'>{description}</Text>
-  </Box>
+  <div>
+    {type === 'ERROR'
+      ? <XIcon />
+      : <FileWarningIcon />
+    }
+    <h2>
+      {title}
+    </h2>
+    <span>
+      {description}
+    </span>
+  </div>
 )
 
 export default ExceptionState

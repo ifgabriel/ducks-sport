@@ -1,6 +1,6 @@
 import { createBeagleUIService } from '@zup-it/beagle-react'
 
-import { Card, Container, ExceptionState, Grid, Input, Skeleton, Text } from '../components-ui'
+import { Banner, Card, Container, ExceptionState, Grid, Input, ProductDetail, Screen, Skeleton, Text } from '../components-ui'
 
 export default createBeagleUIService({
   baseUrl: '/pages',
@@ -11,6 +11,9 @@ export default createBeagleUIService({
     'custom:container': Container,
     'custom:grid': Grid,
     'custom:skeleton': Skeleton,
-    'custom:exceptionState': ExceptionState
+    'custom:exceptionState': ExceptionState,
+    'custom:productDetail': ProductDetail,
+    'custom:screen': Screen,
+    'custom:banner': Banner,
   },
 })

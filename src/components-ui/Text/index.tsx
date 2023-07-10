@@ -1,12 +1,11 @@
-import { Text as PrimitiveText, TextProps } from '@chakra-ui/react'
-import { ReactNode } from 'react'
+import { ReactNode } from "react"
 
-interface ComponentProps extends TextProps {
+interface ComponentProps {
   text?: ReactNode
 }
 
-const Text = ({ text, ...props }: ComponentProps) => (
-  <PrimitiveText {...props}>{text ?? props.children}</PrimitiveText>
+const Text = ({ text }: ComponentProps) => (
+  <span>{text}</span>
 )
 
 export default Text

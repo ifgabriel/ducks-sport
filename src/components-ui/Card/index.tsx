@@ -1,44 +1,32 @@
-import { Badge, Box, Image } from '@chakra-ui/react'
 
-import Text from '../Text'
+import { Product } from "../../domain/usecase";
 
-interface ComponentProps {
-  imageUrl: string
-  name: string
-  brand: string
-  price: string
-  onPress: any
-  installmentPrice?: {
-    installments: number
-    price: string
-  }
-  status?: 'NEW' | 'RECOMMED'
+interface ComponentProps extends Product {
+  onPress: ({ id }: Record<string, string>) => void;
 }
 
-const Card = ({ imageUrl, status, name, price, installmentPrice, onPress }: ComponentProps) => (
-  <Box overflow='hidden' onClick={() => onPress?.()}>
-    <Image src={imageUrl} alt='' borderRadius='3xl'/>
-    <Box py='6' px='2' gap='16px' display='flex' flexDirection='column'>
-      <Box display='flex' alignItems='baseline'>
-        {status && (
-          <Badge borderRadius='sm' px='2' colorScheme={status === 'NEW' ? 'cyan' : 'purple'}>
-            {status === 'NEW' ? 'Lançamento' : 'Recomendado'}
-          </Badge>
-        )}
-      </Box>
-      <Text mt='1' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines={1}>
+const Card = ({ id, imageUrl, status, name, brand, price, installmentPrice, onPress }: ComponentProps) => (
+  <button onClick={() => onPress?.({ id })} className="m-w-[224px] text-left gap-2">
+    <div className="p-4 bg-white rounded-3xl">
+      <img src={imageUrl} alt={name} />
+    </div>
+    <div className="py-4 px-2">
+      <p className="text-zinc-950 text-xl font-medium">
         {name}
-      </Text>
-      <Box>
-        <Text>R${price}</Text>
+      </p>
+      <p className="text-zinc-700">
+        {brand}
+      </p>
+      <div className="mt-3">
+        <p className="text-zinc-950 text-xl ">R$ {price}</p>
         {!!installmentPrice && (
-          <Text color='orange.500' fontSize='sm'>
-            {installmentPrice.installments} x R$ {installmentPrice.price}{' '}
-          </Text>
+          <span  className="text-zinc-700">
+            {installmentPrice.installments} x R$ {installmentPrice.price}
+          </span>
         )}
-      </Box>
-    </Box>
-  </Box>
+      </div>
+    </div>
+  </button>
 )
 
-export default Card
+export default Card;

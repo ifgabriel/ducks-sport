@@ -1,6 +1,6 @@
-import { HttpResponse } from '../data/protocols/http'
+import { HttpResponse } from '../../data/protocols/http'
 
-import { AxiosHttpClient } from '../infra/http'
+import { AxiosHttpClient } from '../../infra/http'
 
 type Get = <P, R>(uri: string, params?: P) => Promise<HttpResponse<R>>
 type Post = <P, R>(uri: string, data?: P) => Promise<HttpResponse<R>>

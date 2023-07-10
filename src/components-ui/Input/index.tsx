@@ -1,4 +1,3 @@
-import { Box, FormLabel, Input as InputPrimitive } from '@chakra-ui/react'
 import { ChangeEvent } from 'react'
 
 type onChange = (value: Record<string, string>) => void
@@ -15,10 +14,15 @@ const handleEvent = (handler?: onChange) => (event: ChangeEvent<HTMLInputElement
 }
 
 const Input = ({ value, label, onChange, placeholder }: ComponentProps) => (
-  <Box mx="auto" width={500}  my={12}>
-    <FormLabel fontWeight='normal'>{label}</FormLabel>
-    <InputPrimitive value={value} onChange={handleEvent(onChange)} placeholder={placeholder} />
-  </Box>
+  <div className="flex gap-2 flex-col md:max-w-2xl sm:max-w-md mx-auto my-6">
+    <label className="text-zinc-900">{label}</label>
+    <input 
+      className="h-14 rounded bg-white w-auto px-4 py-2"
+      value={value} 
+      onChange={handleEvent(onChange)}
+       placeholder={placeholder} 
+       />
+  </div>
 )
 
 export default Input
