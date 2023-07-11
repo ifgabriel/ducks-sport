@@ -1,28 +1,53 @@
+import { FacebookIcon, InstagramIcon, MessageSquareIcon } from "lucide-react"
+import { ReactElement } from "react"
 
-<footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-    <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-        <div className="sm:flex sm:items-center sm:justify-between">
-            <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0">
-                <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-            </a>
-            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                <li>
-                    <a href="#" className="mr-4 hover:underline md:mr-6 ">About</a>
-                </li>
-                <li>
-                    <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                </li>
-                <li>
-                    <a href="#" className="mr-4 hover:underline md:mr-6 ">Licensing</a>
-                </li>
-                <li>
-                    <a href="#" className="hover:underline">Contact</a>
-                </li>
-            </ul>
+interface SocialProps {
+    link: string,
+    label: string,
+    icon: ReactElement
+}
+
+const SocialButton = ({ link, label, icon }: SocialProps) => (
+    <a href={link} target="_blank" className="bg-gray-50 flex p-2 justify-center items-center rounded-full text-zinc-800 hover:bg-gray-50/60">
+        {icon}
+        <span className="sr-only">{label}</span>
+    </a>
+)
+
+const social: SocialProps[] = [
+    {
+        link: 'https://www.facebook.com/DucksSports/',
+        label: 'Página do Facebook',
+        icon: <FacebookIcon size={20} />
+    },
+    {
+        link: 'https://www.instagram.com/duckssportsoficial/',
+        label: 'Página do Instagram',
+        icon: <InstagramIcon size={20} />
+    },
+    {
+        link: 'https://api.whatsapp.com/send?phone=553438231315',
+        label: 'Conversa no Whatsapp',
+        icon: <MessageSquareIcon  size={20} />
+    },
+]
+
+const Footer = () => (
+    <footer className="bottom-0 bg-white mt-24">
+        <hr className="border-zinc-100"/>
+        <div className="mx-auto w-full max-w-screen-xl">
+            <div className="px-4 py-6 md:flex md:items-center md:justify-between">
+                <span className="text-md text-zinc-800 sm:text-center">© 2023 Ducks Sports. Todos os direitos reservados.
+                </span>
+                <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
+                    {social.map((item) => (
+                        <SocialButton key={item.label} {...item} />
+                    ))}
+                </div>
+            </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
-    </div>
-</footer>
+    </footer>
 
+)
+
+export default Footer

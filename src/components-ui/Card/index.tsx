@@ -10,17 +10,19 @@ const Card = ({ id, imageUrl, status, name, brand, price, installmentPrice, onPr
     <div className="p-4 bg-white rounded-3xl">
       <img src={imageUrl} alt={name} />
     </div>
-    <div className="py-4 px-2">
-      <p className="text-zinc-950 text-xl font-medium">
-        {name}
-      </p>
-      <p className="text-zinc-700">
-        {brand}
-      </p>
-      <div className="mt-3">
+    <div className="flex flex-col justify-between py-4 px-2 min-h-[164px]">
+      <div>
+        <p className="text-zinc-950 text-lg font-medium ">
+          {name}
+        </p>
+        <p className="text-zinc-700">
+          {brand}
+        </p>
+      </div>
+      <div>
         <p className="text-zinc-950 text-xl ">R$ {price}</p>
         {!!installmentPrice && (
-          <span  className="text-zinc-700">
+          <span className="text-zinc-700">
             {installmentPrice.installments} x R$ {installmentPrice.price}
           </span>
         )}

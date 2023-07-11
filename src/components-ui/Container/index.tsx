@@ -19,7 +19,7 @@ const Container = ({ condition, children, ...props }: ComponentProps) => {
   const renders = components.reduce((acc, current) => ({ ...acc, [current.props.case]: current }), {})
 
   return (
-    <div {...props} className="container mx-auto">{renders[handleCondition()] ?? children}</div>
+    <div {...props} className="container mx-auto px-2">{renders[handleCondition()] ?? children}</div>
   )
 }
 

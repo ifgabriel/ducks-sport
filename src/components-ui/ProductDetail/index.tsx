@@ -58,22 +58,18 @@ const ProductDetail = ({ url, params }: ComponentProps) => {
                 </div>
               </div>
             </div>
-
             <hr className="h-px my-8 bg-gray-100 border-0" />
-
             <div>
               <div>
                 <span>
                   {data.description}
                 </span>
               </div>
-
               <hr className="h-px my-8 bg-gray-100 border-0" />
               <div>
                 <span>
                   Product Details
                 </span>
-
                 <ul>
                   <li>
                     <span>
@@ -93,7 +89,41 @@ const ProductDetail = ({ url, params }: ComponentProps) => {
           </section>
         ),
         empty: '',
-        loading: <Skeleton width="100%" height="600px" />,
+        loading: (
+          <section className="py-36">
+            <div className="flex gap-8 flex-wrap">
+              <div className="flex sm:flex-row md:flex-col gap-5 overflow-auto">
+                <Skeleton width="74px" height="74px" />
+                <Skeleton width="74px" height="74px" />
+                <Skeleton width="74px" height="74px" />
+                <Skeleton width="74px" height="74px" />
+                <Skeleton width="74px" height="74px" />
+              </div>
+              <Skeleton width="400px" height="400px" />
+              <div className="flex flex-col gap-2">
+                <span className="text-zinc-950 text-6xl font-medium">
+                  <Skeleton width="300px" height="20px" />
+                </span>
+                <span className="text-zinc-500 text-3xl font-medium uppercase">
+                  <Skeleton width="150px" height="20px" />
+                </span>
+                <div className="mt-8">
+                  <Skeleton width="150px" height="20px" />
+                  <Skeleton width="150px" height="15px" />
+                </div>
+                <div className="flex flex-wrap gap-4 mt-8">
+                  <Skeleton width="300px" height="32px" />
+                </div>
+              </div>
+            </div>
+            <hr className="h-px my-8 bg-gray-100 border-0" />
+            <div>
+              <Skeleton width="400px" height="300px" />
+              <hr className="h-px my-8 bg-gray-100 border-0" />
+              <Skeleton width="400px" height="300px" />
+            </div>
+          </section>
+        ),
         error: <ExceptionState title="Opps! Infelizmente tivemos um problema" description="Tente novamente mais tarde" type="ERROR" />,
       }[handleRenderState(isFetched, data)]}
     </>

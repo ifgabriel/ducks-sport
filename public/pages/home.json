@@ -5,129 +5,134 @@
     "id": "productsFilter",
     "value": ""
   },
-  "child": {
-    "_beagleComponent_": "custom:container",
-    "context": {
-      "id": "productsFilter",
-      "value": ""
+  "children": [
+    {
+      "_beagleComponent_": "custom:navbar"
     },
-    "children": [
-      {
-        "_beagleComponent_": "custom:input",
-        "placeholder": "Nike, Adidas, Asics, Olympikus...",
-        "label": "Pesquise algo",
-        "value": "@{productsFilter}",
-        "onChange": [
-          {
-            "_beagleAction_": "beagle:setContext",
-            "contextId": "productsFilter",
-            "value": "@{onChange.value}"
-          }
-        ]
+    {
+      "_beagleComponent_": "custom:container",
+      "context": {
+        "id": "productsFilter",
+        "value": ""
       },
-      {
-        "_beagleComponent_": "custom:container",
-        "condition": "@{isEmpty(productsFilter)}",
-        "children": [
-          {
-            "case": "error",
-            "_beagleComponent_": "custom:grid",
-            "url": "/products",
-            "queryParams": {
-              "name": "@{productsFilter}"
-            },
-            "children": [
-              {
-                "case": "view",
-                "_beagleComponent_": "custom:card",
-                "onPress": [
-                  {
-                    "_beagleAction_": "beagle:setContext",
-                    "contextId": "global",
-                    "path": "product",
-                    "value": "@{onPress.id}"
-                  },
-                  {
-                    "_beagleAction_": "beagle:openNativeRoute",
-                    "route": "/@{onPress.id}",
-                    "shouldResetApplication": false
-                  }
-                ]
+      "children": [
+        {
+          "_beagleComponent_": "custom:input",
+          "placeholder": "Nike, Adidas, Asics, Olympikus...",
+          "label": "Pesquise algo",
+          "value": "@{productsFilter}",
+          "onChange": [
+            {
+              "_beagleAction_": "beagle:setContext",
+              "contextId": "productsFilter",
+              "value": "@{onChange.value}"
+            }
+          ]
+        },
+        {
+          "_beagleComponent_": "custom:container",
+          "condition": "@{isEmpty(productsFilter)}",
+          "children": [
+            {
+              "case": "error",
+              "_beagleComponent_": "custom:grid",
+              "url": "/products",
+              "queryParams": {
+                "name": "@{productsFilter}"
               },
-              {
-                "case": "loading",
-                "length": 10,
-                "_beagleComponent_": "custom:skeleton",
-                "width": "296px",
-                "height": "400px"
-              },
-              {
-                "case": "empty",
-                "_beagleComponent_": "custom:exceptionState",
-                "title": "Opps! Nenhum resultado encontrado",
-                "description": "Pode ter acabado o estoque desse produto"
-              },
-              {
-                "case": "error",
-                "_beagleComponent_": "custom:exceptionState",
-                "title": "Opps! Infelizmente tivemos um problema",
-                "description": "Tente novamente mais tarde"
-              }
-            ]
-          },
-          {
-            "case": "view",
-            "_beagleComponent_": "beagle:container",
-            "children": [
-              {
-                "_beagleComponent_": "custom:grid",
-                "url": "/products",
-                "queryParams": {
-                  "status": "RECOMMENDED"
+              "children": [
+                {
+                  "case": "view",
+                  "_beagleComponent_": "custom:card",
+                  "onPress": [
+                    {
+                      "_beagleAction_": "beagle:setContext",
+                      "contextId": "global",
+                      "path": "product",
+                      "value": "@{onPress.id}"
+                    },
+                    {
+                      "_beagleAction_": "beagle:openNativeRoute",
+                      "route": "/@{onPress.id}",
+                      "shouldResetApplication": false
+                    }
+                  ]
                 },
-                "children": [
-                  {
-                    "case": "view",
-                    "_beagleComponent_": "custom:card",
-                    "onPress": [
-                      {
-                        "_beagleAction_": "beagle:setContext",
-                        "contextId": "global",
-                        "path": "product",
-                        "value": "@{onPress.id}"
-                      },
-                      {
-                        "_beagleAction_": "beagle:openNativeRoute",
-                        "route": "/@{onPress.id}",
-                        "shouldResetApplication": false
-                      }
-                    ]
+                {
+                  "case": "loading",
+                  "length": 10,
+                  "_beagleComponent_": "custom:skeleton",
+                  "width": "296px",
+                  "height": "400px"
+                },
+                {
+                  "case": "empty",
+                  "_beagleComponent_": "custom:exceptionState",
+                  "title": "Opps! Nenhum resultado encontrado",
+                  "description": "Pode ter acabado o estoque desse produto"
+                },
+                {
+                  "case": "error",
+                  "_beagleComponent_": "custom:exceptionState",
+                  "title": "Opps! Infelizmente tivemos um problema",
+                  "description": "Tente novamente mais tarde"
+                }
+              ]
+            },
+            {
+              "case": "view",
+              "_beagleComponent_": "beagle:container",
+              "children": [
+                {
+                  "_beagleComponent_": "custom:grid",
+                  "url": "/products",
+                  "queryParams": {
+                    "status": "RECOMMENDED"
                   },
-                  {
-                    "case": "loading",
-                    "length": 10,
-                    "_beagleComponent_": "custom:skeleton",
-                    "width": "296px",
-                    "height": "400px"
-                  },
-                  {
-                    "case": "empty",
-                    "_beagleComponent_": "custom:exceptionState",
-                    "title": "Opps! Nenhum resultado encontrado",
-                    "description": "Pode ter acabado o estoque desse produto"
-                  },
-                  {
-                    "case": "error",
-                    "_beagleComponent_": "custom:exceptionState",
-                    "title": "Opps! Infelizmente tivemos um problema",
-                    "description": "Tente novamente mais tarde"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+                  "children": [
+                    {
+                      "case": "view",
+                      "_beagleComponent_": "custom:card",
+                      "onPress": [
+                        {
+                          "_beagleAction_": "beagle:setContext",
+                          "contextId": "global",
+                          "path": "product",
+                          "value": "@{onPress.id}"
+                        },
+                        {
+                          "_beagleAction_": "beagle:openNativeRoute",
+                          "route": "/@{onPress.id}",
+                          "shouldResetApplication": false
+                        }
+                      ]
+                    },
+                    {
+                      "case": "loading",
+                      "length": 10,
+                      "_beagleComponent_": "custom:skeleton",
+                      "width": "296px",
+                      "height": "400px"
+                    },
+                    {
+                      "case": "empty",
+                      "_beagleComponent_": "custom:exceptionState",
+                      "title": "Opps! Nenhum resultado encontrado",
+                      "description": "Pode ter acabado o estoque desse produto"
+                    },
+                    {
+                      "case": "error",
+                      "_beagleComponent_": "custom:exceptionState",
+                      "title": "Opps! Infelizmente tivemos um problema",
+                      "description": "Tente novamente mais tarde"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

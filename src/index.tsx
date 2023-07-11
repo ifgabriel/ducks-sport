@@ -7,16 +7,9 @@ import makeServer from './mocks'
 
 makeServer()
 
-
-export const metadata = {
-  title: 'NLW Spacetime',
-  description:
-    'Uma cápsula do tempo construída com React, Next.js, TailwindCSS e Typescript.',
-}
-
 ReactDOM.render(
   <React.StrictMode>
-    <main className='bg-gray-50 font-sans text-gray-100'>
+    <main className='bg-slate-50/80  font-sans text-gray-400'>
       <App />
     </main>
   </React.StrictMode>,

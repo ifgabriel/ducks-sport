@@ -29,7 +29,7 @@ const Grid = ({ url, queryParams, children, ...props }: ComponentProps) => {
   const renderState = handleRenderState(isFetched, data, !data?.length)
   return (
     <>
-      <section className='grid md:grid-cols-5 sm:grid-cols-2 gap-12 gap-y-20 py-6' {...props}>
+      <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 gap-y-20 py-6' {...props}>
         {{
           ...renders,
           loading: (
