@@ -1,20 +1,15 @@
 export interface RemoteProduct {
   id: string
   name: string
-  price: string
-  brand: string,
-  status: 'NEW' | 'RECOMMENDED'
-  imageUrl: string,
-  installmentPrice: {
-    price: number
-    installments: number
+  brand: {
+    id: string,
+    name: string,
   },
-  gender: 'MALE' | 'FEMALE',
-  material: string,
-  sizes: number[],
+  gender: string,
+  price: number,
   description: string,
-}
-
-export type RemoteDetailProduct = RemoteProduct & {
-  imagesUrl: string[],
+  images: {
+    id: string,
+    url: string,
+  }[]
 }

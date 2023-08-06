@@ -1,15 +1,17 @@
-import { Link } from 'react-router-dom'
+import { ErrorComponentParams } from '@zup-it/beagle-react'
+import { FC } from 'react'
 
-interface BannerProps {
-    imageUrl: string,
-    alt: string,
-    url: string,
+const CustomErrorComponent: FC<ErrorComponentParams> = ({ retry }) => {
+
+  return (
+    <>
+      <p>
+      AAAAAAAAAAAAAAAAA
+      </p>
+      <button onClick={retry}>Retry</button>
+    </>
+  )
 }
 
-const Banner = ({ imageUrl, alt, url }: BannerProps) => (
-    <Link target='_blank' to={url} >
-        <img src={imageUrl} alt={alt} />
-    </Link>
-)
 
-export default Banner
+export default CustomErrorComponent

@@ -20,6 +20,7 @@ const makeServer = () =>
       routes(this)
       this.passthrough('/pages/home.json')
       this.passthrough('/pages/product-detail.json')
+      this.passthrough('https://api-sa-east-1.hygraph.com/v2/clkcppifc4oz501ur9zro6khl/master')
     },
   })
 

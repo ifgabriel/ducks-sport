@@ -1,4 +1,3 @@
-import { ModelDetailProduct, ModelProduct } from "../ModelProduct";
+import { ModelProduct } from "../../model";
 
 export type Product = ModelProduct
-export type DetailProduct = ModelDetailProduct
