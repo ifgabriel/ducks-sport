@@ -6,8 +6,8 @@ const GET_PRODUCTS_QUERY = gql`
     products(
       where: {
         name_contains: $name
-        gender: { slug_contains: $gender }
-        subCategory: { slug_contains: $subCategory }
+        gender: { name_contains: $gender }
+        subCategory: { name_contains: $subCategory }
       }
     ) {
       id

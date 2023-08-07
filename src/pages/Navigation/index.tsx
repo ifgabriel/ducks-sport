@@ -19,7 +19,7 @@ const Navigation = () => {
       {
         {
           view: !!data && (
-            <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 gap-y-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 gap-y-20">
               {data?.products.map((item) => (
                 <Card
                   {...item}
@@ -27,7 +27,7 @@ const Navigation = () => {
                   onPress={({ id }) => navigate(`/product/${id}`)}
                 />
               ))}
-            </section>
+            </div>
           ),
           empty: <ExceptionState
           title="Opps! Nenhum produto encontrato"

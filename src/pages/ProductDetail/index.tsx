@@ -41,7 +41,7 @@ const ProductDetail = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="text-zinc-950 text-6xl font-medium">
+                  <span className="text-zinc-950 text-4xl font-medium">
                     {data.product.name}
                   </span>
                   <span className="text-zinc-500 text-3xl font-medium uppercase">
@@ -57,7 +57,7 @@ const ProductDetail = () => {
               <hr className="h-px my-8 bg-gray-100 border-0" />
               <div>
                 <div>
-                  <h3 className="text-zinc-950 text-4xl font-bold mb-4">Descrição</h3>
+                  <h3 className="text-zinc-950 text-xl font-bold mb-4">Descrição</h3>
                   <span className="text-zinc-950">
                     {data.product.description}
                   </span>

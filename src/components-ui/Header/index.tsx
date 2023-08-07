@@ -4,10 +4,16 @@ import { useFetchHeader } from '../../services'
 import { handleDebounce } from '../../utils'
 
 const Header = () => {
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
 
   const navigate = useNavigate()
   const { data } = useFetchHeader()
+
+  const handleSearchParams = (param: string, value: string) => {
+    searchParams.set(param, value)
+    
+    navigate({ pathname: '/', search: searchParams.toString() })
+  }
 
   return (
     <header className="bg-white">
@@ -26,7 +32,7 @@ const Header = () => {
                 <li key={gender.slug} className="sm:relative group px-3 py-2">
                   <span
                     className="text-zinc-950 cursor-pointer"
-                    onClick={() => setSearchParams({ gender: gender.slug })}
+                    onClick={() => handleSearchParams('gender', gender.name)}
                   >
                     {gender.name}
                   </span>
@@ -44,13 +50,11 @@ const Header = () => {
                                   <li
                                     key={subCategory.slug}
                                     onClick={() => {
-                                      searchParams.set('gender', gender.slug)
-                                      searchParams.set(
+                                      handleSearchParams('gender', gender.name)
+                                      handleSearchParams(
                                         'subCategory',
-                                        subCategory.slug,
+                                        subCategory.name,
                                       )
-
-                                      setSearchParams(searchParams)
                                     }}
                                     className="block p-2 -mx-2 rounded-lg text-gray-800 font-semibold hover:bg-slate-100/70 cursor-pointer"
                                   >
@@ -75,8 +79,9 @@ const Header = () => {
           className="w-full md:w-auto lg:min-w-[500px] px-4 py-2 text-zinc-800 bg-slate-100/70 border border-zinc-100 rounded"
           placeholder="Procure"
           onChange={handleDebounce((event) => {
-            searchParams.set('name', event.target.value)
-            setSearchParams(searchParams)
+            if (event.target.value.trim()) {
+              handleSearchParams('name', event.target.value)
+            }
           })}
         />
       </div>

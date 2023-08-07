@@ -29,7 +29,7 @@
               "case": "loading",
               "length": 10,
               "_beagleComponent_": "custom:skeleton",
-              "width": "296px",
+              "width": "auto",
               "height": "400px"
             },
             {
