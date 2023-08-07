@@ -1,12 +1,13 @@
-const handleDebounce = (fn: () => void, time = 700) => {
-    let timer = 0 as any
+const handleDebounce = <T>(func: (args: T) => void, delay = 700) => {
+  let timer: ReturnType<typeof setTimeout>
 
-    console.log('timer')
-    timer = setTimeout(fn, time)
-
+  return (args: T) => {
     clearTimeout(timer)
 
-    return timer
+    timer = setTimeout(() => {
+      func(args)
+    }, delay)
+  }
 }
 
 export default handleDebounce

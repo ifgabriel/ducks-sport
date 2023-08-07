@@ -6,17 +6,11 @@ import { Main, ProductDetail } from './pages'
 
 const App = () => (
   <ApolloProvider client={client}>
-    <Header />
-      <BrowserRouter>
+    <BrowserRouter>
+      <Header />
       <Routes>
-        <Route
-          path='/'
-          element={<Main />}
-        />
-        <Route
-          path='/product/:id'
-          element={<ProductDetail />}
-        />
+        <Route path="/" element={<Main />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

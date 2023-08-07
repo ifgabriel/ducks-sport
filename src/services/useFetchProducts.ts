@@ -1,9 +1,15 @@
-import { RemoteProduct } from '../data';
-import { gql, useQuery } from '../lib/hygraph-client';
+import { RemoteProduct } from '../data'
+import { gql, useQuery } from '../lib/hygraph-client'
 
 const GET_PRODUCTS_QUERY = gql`
-  query {
-    products {
+  query GET_PRODUCTS($name: String, $gender: String, $subCategory: String) {
+    products(
+      where: {
+        name_contains: $name
+        gender: { slug_contains: $gender }
+        subCategory: { slug_contains: $subCategory }
+      }
+    ) {
       id
       name
       brand {
@@ -24,6 +30,24 @@ const GET_PRODUCTS_QUERY = gql`
   }
 `
 
-const useFetchProducts = () => useQuery<RemoteProduct[]>(GET_PRODUCTS_QUERY)
+type FetchProducts = {
+  name?: string
+  gender?: string
+  subCategory?: string
+}
+
+const defaultFilter: FetchProducts = {
+  name: '',
+  gender: '',
+  subCategory: '',
+}
+
+const useFetchProducts = (params?: FetchProducts) => {
+  const variables = { ...defaultFilter, ...params }
+
+  return useQuery<{ products: RemoteProduct[] }>(GET_PRODUCTS_QUERY, {
+    variables,
+  })
+}
 
 export default useFetchProducts

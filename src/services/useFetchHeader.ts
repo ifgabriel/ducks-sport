@@ -2,15 +2,17 @@ import { RemoteHeader } from '@/data';
 import { gql, useQuery } from '../lib/hygraph-client';
 
 const GET_HEADER_QUERY = gql`
-  genders {
-    name
-    slug
-    categories {
-      ... on Category {
-        name
-        subCategories {
+  query {
+    genders {
+      name
+      slug
+      categories {
+        ... on Category {
           name
-          slug
+          subCategories {
+            name
+            slug
+          }
         }
       }
     }

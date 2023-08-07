@@ -8,7 +8,7 @@ import { handleRenderState } from "../../utils"
 const ProductDetail = () => {
     const { id } = useParams()
     const { data, called } = useFetchProduct(id!)
-    const [currentImage, setCurrentImage] = useState(data?.images[0].url)
+    const [currentImage, setCurrentImage] = useState(data?.product.images[0].url)
 
     return (
         <section className='container mx-auto'>
@@ -18,30 +18,30 @@ const ProductDetail = () => {
                         <Link to="/" className="mb-8 flex gap-2 text-zinc-900"><MoveLeftIcon />Voltar</Link>
                         <div className="flex gap-8 flex-wrap">
                             <div className="flex sm:flex-row md:flex-col gap-5 overflow-auto">
-                                {data.images?.map((image, index) => (
+                                {data.product.images?.map((image, index) => (
                                     <img onClick={() => setCurrentImage(image.url)} key={`image-detail-product-${index}`} width='74px' height='74px' src={image.url} className="rounded" />
                                 ))}
                             </div>
                             <div className="overflow-hidden">
-                                <img src={currentImage ?? data.images[0].url} className="max-w-md rounded-md object-contain" />
+                                <img src={currentImage ?? data.product.images[0].url} className="max-w-md rounded-md object-contain" />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <span className="text-zinc-950 text-6xl font-medium">
-                                    {data.name}
+                                    {data.product.name}
                                 </span>
                                 <span className="text-zinc-500 text-3xl font-medium uppercase">
-                                    {data.brand.name}
+                                    {data.product.brand.name}
                                 </span>
                                 <div className="mt-8">
-                                    <p className="text-3xl text-zinc-950">R${data.price}</p>
+                                    <p className="text-3xl text-zinc-950">R${data.product.price}</p>
                                 </div>
                             </div>
                         </div>
                         <hr className="h-px my-8 bg-gray-100 border-0" />
-                        {/*    <div>
+                     {/*    <div>
                             <div>
                                 <span>
-                                    {data.description}
+                                    {data.product.description}
                                 </span>
                             </div>
                             <hr className="h-px my-8 bg-gray-100 border-0" />
@@ -54,13 +54,13 @@ const ProductDetail = () => {
                                         <span>
                                             Material:
                                         </span>{' '}
-                                        {data.material}
+                                        {data.product.material}
                                     </li>
                                     <li>
                                         <span>
                                             Genero:
                                         </span>{' '}
-                                        {data.gender}
+                                        {data.product.gender}
                                     </li>
                                 </ul>
                             </div>
