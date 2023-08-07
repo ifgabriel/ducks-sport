@@ -1,14 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 
 import App from './App'
 import './index.css'
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root')!)
+
+root.render(
   <React.StrictMode>
-    <main className='bg-slate-100/70  font-sans text-gray-400'>
-      <App />
-    </main>
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
 )

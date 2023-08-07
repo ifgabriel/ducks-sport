@@ -1,5 +1,5 @@
-import { RemoteHeader } from '@/data';
-import { gql, useQuery } from '../lib/hygraph-client';
+import { RemoteHeader } from '@/data'
+import { gql, useQuery } from '../lib/hygraph-client'
 
 const GET_HEADER_QUERY = gql`
   query {

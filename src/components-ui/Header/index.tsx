@@ -30,7 +30,7 @@ const Header = () => {
                   >
                     {gender.name}
                   </span>
-                  <div className="absolute top-10 right-10 left-10 sm:top-3 sm:-left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 sm:min-w-[360px] transform">
+                  <div className="absolute top-5 left-10 right-10 sm:-left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 sm:min-w-[360px] transform">
                     <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
                       <div className="relative z-10">
                         <div className="grid grid-cols-2 gap-9">

@@ -8,7 +8,6 @@ type Put = <P, R>(uri: string, data?: P) => Promise<HttpResponse<R>>
 type Patch = <P, R>(uri: string, data?: P) => Promise<HttpResponse<R>>
 type Delete = <R>(uri: string) => Promise<HttpResponse<R>>
 
-
 function API() {
   const axios = AxiosHttpClient()
   const URL = 'http://localhost:3000'

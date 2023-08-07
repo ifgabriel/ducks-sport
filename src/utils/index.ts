@@ -1,5 +1,5 @@
-export * from './Api';
-export { default as buildUrl } from './buildUrl';
-export { default as handleDebounce } from './handleDebounce';
-export { default as handleRenderState } from './handleRenderState';
-
+export * from './Api'
+export { default as buildUrl } from './buildUrl'
+export { default as formatCurrency } from './formatCurrency'
+export { default as handleDebounce } from './handleDebounce'
+export { default as handleRenderState } from './handleRenderState'

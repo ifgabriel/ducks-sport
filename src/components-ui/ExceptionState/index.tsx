@@ -1,23 +1,16 @@
-import { FileWarningIcon, XIcon } from 'lucide-react';
+import { FileWarningIcon, XIcon } from 'lucide-react'
 
 interface ComponentProps {
-  title: string,
-  description: string,
-  type: 'ERROR' | 'EMPTY'
+  title: string
+  description: string
+  type: 'error' | 'empty'
 }
 
 const ExceptionState = ({ title, description, type }: ComponentProps) => (
   <div>
-    {type === 'ERROR'
-      ? <XIcon />
-      : <FileWarningIcon />
-    }
-    <h2>
-      {title}
-    </h2>
-    <span>
-      {description}
-    </span>
+    {type === 'error' ? <XIcon /> : <FileWarningIcon />}
+    <h2>{title}</h2>
+    <span>{description}</span>
   </div>
 )
 

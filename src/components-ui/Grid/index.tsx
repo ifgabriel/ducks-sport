@@ -9,10 +9,10 @@ interface ComponentProps {
 }
 
 const Grid = ({ children, ...props }: ComponentProps) => {
-  const { data, called } = useFetchProducts()
+  const { data, loading, called } = useFetchProducts()
 
   const components = children.map((child) => child.props.children[0])
-  const renderState = handleRenderState(called, data, !data?.products.length)
+  const renderState = handleRenderState(called, loading, data, !data?.products.length)
   const renders = components.reduce(
     (acc, current) => ({ ...acc, [current.props.case]: current }),
     {},

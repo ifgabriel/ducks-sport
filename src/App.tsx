@@ -6,14 +6,16 @@ import { Main, ProductDetail } from './pages'
 
 const App = () => (
   <ApolloProvider client={client}>
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <main className="bg-slate-100/70  font-sans text-gray-400">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </main>
   </ApolloProvider>
 )
 
