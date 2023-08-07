@@ -6,7 +6,7 @@ import { Main, ProductDetail } from './pages'
 
 const App = () => (
   <ApolloProvider client={client}>
-    <main className="bg-slate-100/70  font-sans text-gray-400">
+    <main className="bg-slate-100/70 font-sans text-gray-400 gap-24 grid grid-rows-[72px_1fr_101px] min-h-screen">
       <BrowserRouter>
         <Header />
         <Routes>

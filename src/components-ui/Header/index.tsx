@@ -10,7 +10,7 @@ const Header = () => {
   const { data } = useFetchHeader()
 
   return (
-    <header className="bg-white mb-24">
+    <header className="bg-white">
       <div className="container mx-auto px-6 py-3 flex gap-8 items-center justify-between flex-col md:flex-row">
         <div className="flex gap-3 flex-col sm:flex-row w-full">
           <img
