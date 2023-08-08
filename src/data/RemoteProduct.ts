@@ -1,5 +1,6 @@
 export interface RemoteProduct {
   id: string
+  slug: string
   name: string
   brand: {
     id: string,

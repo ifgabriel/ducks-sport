@@ -2,12 +2,12 @@ import { RemoteProduct } from '../../data'
 import { formatCurrency } from '../../utils'
 
 interface ComponentProps extends RemoteProduct {
-  onPress: ({ id }: Record<string, string>) => void
+  onPress: ({ slug }: Record<string, string>) => void
 }
 
-const Card = ({ id, images, name, brand, price, onPress }: ComponentProps) => (
+const Card = ({ images, slug, name, brand, price, onPress }: ComponentProps) => (
   <button
-    onClick={() => onPress?.({ id })}
+    onClick={() => onPress?.({ slug })}
     className="m-w-[224px] text-left gap-2"
   >
     <div className="p-4 bg-white rounded-3xl overflow-hidden">

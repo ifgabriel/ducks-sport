@@ -16,7 +16,11 @@ const inYourFace: NavigationController = {
   onError: (view) =>
     view.getRenderer().doFullRender({ _beagleComponent_: 'custom:error' }),
   onLoading: (view, completeNavigation) => {
-    view.getRenderer().doFullRender({ _beagleComponent_: 'beagle:loading' })
+    view.getRenderer().doFullRender({
+      _beagleComponent_: 'custom:skeleton', 
+      "width": "auto",
+      "height": "500px"
+    })
     completeNavigation()
   },
 }

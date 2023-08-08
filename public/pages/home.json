@@ -16,11 +16,11 @@
                   "_beagleAction_": "beagle:setContext",
                   "contextId": "global",
                   "path": "product",
-                  "value": "@{onPress.id}"
+                  "value": "@{onPress.slug}"
                 },
                 {
                   "_beagleAction_": "beagle:openNativeRoute",
-                  "route": "/product/@{onPress.id}",
+                  "route": "/@{onPress.slug}",
                   "shouldResetApplication": false
                 }
               ]

@@ -1,8 +1,8 @@
-import { handleRenderState } from '../../utils'
-import { useFetchAsset } from '../../services'
 import { Link } from 'react-router-dom'
-import Skeleton from '../Skeleton'
 import { RemoteAsset } from '../../data'
+import { useFetchAsset } from '../../services'
+import { handleRenderState } from '../../utils'
+import Skeleton from '../Skeleton'
 
 interface BannerProps {
   imageId: string
@@ -11,10 +11,10 @@ interface BannerProps {
 const Banner = ({ imageId }: BannerProps) => {
   const { data, called, loading } = useFetchAsset({ id: imageId })
 
-  const Image = (image: RemoteAsset) => (
+  const Image = (image: RemoteAsset) => !!image && (
     <img
-      src={image?.url}
-      alt={image?.alt}
+      src={image.url}
+      alt={image.alt}
       height="300px"
       className="object-cover w-full h-auto my-24 rounded"
     />
@@ -27,9 +27,11 @@ const Banner = ({ imageId }: BannerProps) => {
           view: !!data && (
             <>
               {data.asset?.to ? (
-                <Link to={data.asset.to}></Link>
+                <Link to={data.asset.to}>
+                  <Image url={data.asset.url} alt={data.asset.alt} />
+                </Link>
               ) : (
-                <Image {...data?.asset} />
+                <Image url={data.asset.url} alt={data.asset.alt} />
               )}
             </>
           ),

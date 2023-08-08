@@ -11,7 +11,7 @@ const Header = () => {
 
   const handleSearchParams = (param: string, value: string) => {
     searchParams.set(param, value)
-    
+
     navigate({ pathname: '/', search: searchParams.toString() })
   }
 
@@ -23,7 +23,7 @@ const Header = () => {
             src={Logo}
             width={160}
             alt="Ducks Sports"
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/', { state: 'reset' })}
             className="hidden sm:block object-cover mr-8 sm:mr-0 cursor-pointer"
           />
           <nav className="flex gap-4 justify-center">

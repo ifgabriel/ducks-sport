@@ -12,6 +12,7 @@ const GET_PRODUCTS_QUERY = gql`
     ) {
       id
       name
+      slug
       brand {
         id
         name

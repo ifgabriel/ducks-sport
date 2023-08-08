@@ -1,5 +1,5 @@
 export interface RemoteAsset {
   url: string
-  to: string
+  to?: string
   alt: string
 }

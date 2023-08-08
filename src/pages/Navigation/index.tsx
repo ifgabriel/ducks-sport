@@ -15,27 +15,28 @@ const Navigation = () => {
 
   return (
     <section className="container mx-auto px-2">
+      <title>Ducks Sports</title>
       <Breadcrumb />
       {
         {
           view: !!data && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 gap-y-20">
+            <div className="grid-product">
               {data?.products.map((item) => (
                 <Card
                   {...item}
                   key={item.id}
-                  onPress={({ id }) => navigate(`/product/${id}`)}
+                  onPress={({ slug }) => navigate(`/${slug}`)}
                 />
               ))}
             </div>
           ),
           empty: <ExceptionState
-          title="Opps! Nenhum produto encontrato"
-          description="Tente buscar por outra opção"
-          type="empty"
-        />,
+            title="Opps! Nenhum produto encontrato"
+            description="Tente buscar por outra opção"
+            type="empty"
+          />,
           loading: (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 gap-y-20">
+            <div className="grid-product">
               {Array.from({ length: 10 }).map((_, index) => (
                 <Skeleton width="auto" height="400px" key={index} />
               ))}

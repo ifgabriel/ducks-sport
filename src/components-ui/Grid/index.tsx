@@ -4,7 +4,6 @@ import { useFetchProducts } from '../../services'
 import { handleRenderState } from '../../utils'
 
 interface ComponentProps {
-  case?: string
   children: ReactElement[]
 }
 
@@ -21,7 +20,7 @@ const Grid = ({ children, ...props }: ComponentProps) => {
   return (
     <>
       <section
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 gap-y-20"
+        className="grid-product"
         {...props}
       >
         {

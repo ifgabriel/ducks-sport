@@ -6,9 +6,9 @@ import useFetchProduct from '../../services/useFetchProduct'
 import { formatCurrency, handleRenderState } from '../../utils'
 
 const ProductDetail = () => {
-  const { id } = useParams()
-  const { data, loading, called } = useFetchProduct(id!)
-  const [currentImage, setCurrentImage] = useState(data?.product.images[0].url)
+  const { slug } = useParams()
+  const { data, loading, called } = useFetchProduct(slug!)
+  const [currentImage, setCurrentImage] = useState(data?.product.images?.[0].url)
   const navigate = useNavigate()
 
   return (
@@ -36,7 +36,7 @@ const ProductDetail = () => {
                 <div>
                   <img
                     alt={data.product.name}
-                    src={currentImage ?? data.product.images[0].url}
+                    src={currentImage ?? data.product.images?.[0].url}
                     className="max-w-auto sm:max-w-md rounded-md object-contain bg-white"
                   />
                 </div>
